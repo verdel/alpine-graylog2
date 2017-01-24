@@ -1,4 +1,4 @@
-FROM hub.solar.lan/alpine-base:latest
+FROM verdel/alpine-base:latest
 MAINTAINER Vadim Aleksandrov <valeksandrov@me.com>
 
 ENV GRAYLOG_VERSION 2.1.2
