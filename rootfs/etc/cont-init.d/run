@@ -1,0 +1,4 @@
+#!/usr/bin/with-contenv sh
+
+j2 /etc/graylog/server/server.conf.j2 > /etc/graylog/server/server.conf
+ 

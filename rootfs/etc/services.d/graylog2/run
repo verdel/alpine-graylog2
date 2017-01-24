@@ -1,0 +1,3 @@
+#!/usr/bin/with-contenv sh
+
+/opt/graylog/bin/graylogctl run
