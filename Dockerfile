@@ -1,7 +1,7 @@
 FROM verdel/alpine-base:latest
 MAINTAINER Vadim Aleksandrov <valeksandrov@me.com>
 
-ENV GRAYLOG_VERSION 2.2.1
+ENV GRAYLOG_VERSION 2.2.2
 ENV JAVA_HOME /usr
 
 RUN apk --update add \
