@@ -379,7 +379,7 @@ lb_recognition_period_seconds = 3
 #mongodb_uri = mongodb://{{MONGO_HOST | default('mongodb') }}:{{ MONGO_PORT | default(27017) }}/graylog2
 
 # Authenticate against the MongoDB server
-mongodb_uri = mongodb://{{MONGO_USER | default('graylog2') }}:{{GRAYLOG_PASSWORD | default('password') }}@{{MONGO_HOST | default('mongodb') }}:{{ MONGO_PORT | default(27017) }}/graylog2
+mongodb_uri = mongodb://{{MONGO_USER | default('graylog2') }}:{{MONGO_PASSWORD | default('password') }}@{{MONGO_HOST | default('mongodb') }}:{{ MONGO_PORT | default(27017) }}/graylog2
 
 # Use a replica set instead of a single host
 #mongodb_uri = mongodb://grayloguser:secret@localhost:27017,localhost:27018,localhost:27019/graylog
