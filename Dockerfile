@@ -21,8 +21,6 @@ RUN cd /opt/ \
     && tar xfz graylog-$GRAYLOG_VERSION.tgz \
     && mv graylog-$GRAYLOG_VERSION/ graylog/ \
     && rm graylog-$GRAYLOG_VERSION.tgz \
-    && mkdir -p /usr/share/elasticsearch/backup \
-    && chmod -R 777 /usr/share/elasticsearch/backup
 
 COPY rootfs /
 

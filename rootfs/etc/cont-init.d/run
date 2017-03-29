@@ -5,3 +5,7 @@ if [ -f /etc/graylog/server/server.conf.j2 ];then
     j2 /etc/graylog/server/server.conf.j2 > /etc/graylog/server/server.conf
     rm /etc/graylog/server/server.conf.j2
 fi
+
+export ELASTICSEARCH_REPOSITORY_PATH=${ELASTICSEARCH_REPOSITORY_PATH:-"/usr/share/elasticsearch/backup"}
+mkdir -p ${ELASTICSEARCH_REPOSITORY_PATH}
+chmod -R 777 ${ELASTICSEARCH_REPOSITORY_PATH}
