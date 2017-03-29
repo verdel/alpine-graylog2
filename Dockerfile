@@ -4,7 +4,7 @@ MAINTAINER Vadim Aleksandrov <valeksandrov@me.com>
 ENV GRAYLOG_VERSION 2.2.2
 ENV JAVA_HOME /usr
 
-RUN apk --update add \
+RUN apk --no-cache --update add \
     bash \
     openjdk8-jre \
     py-pip \
@@ -20,7 +20,9 @@ ADD https://packages.graylog2.org/releases/graylog/graylog-$GRAYLOG_VERSION.tgz 
 RUN cd /opt/ \
     && tar xfz graylog-$GRAYLOG_VERSION.tgz \
     && mv graylog-$GRAYLOG_VERSION/ graylog/ \
-    && rm graylog-$GRAYLOG_VERSION.tgz
+    && rm graylog-$GRAYLOG_VERSION.tgz \
+    && mkdir -p /usr/share/elasticsearch/backup \
+    && chmod -R 777 /usr/share/elasticsearch/backup
 
 COPY rootfs /
 
