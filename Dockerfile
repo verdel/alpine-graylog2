@@ -20,7 +20,7 @@ ADD https://packages.graylog2.org/releases/graylog/graylog-$GRAYLOG_VERSION.tgz 
 RUN cd /opt/ \
     && tar xfz graylog-$GRAYLOG_VERSION.tgz \
     && mv graylog-$GRAYLOG_VERSION/ graylog/ \
-    && rm graylog-$GRAYLOG_VERSION.tgz \
+    && rm graylog-$GRAYLOG_VERSION.tgz
 
 COPY rootfs /
 
