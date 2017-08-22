@@ -122,7 +122,7 @@ web_listen_uri = http://0.0.0.0:9000/
 # Configuration file for the embedded Elasticsearch instance in Graylog.
 # Pay attention to the working directory of the server, maybe use an absolute path here.
 # Default: empty
-elasticsearch_config_file = /etc/graylog/server/elasticsearch.yml
+# elasticsearch_config_file = /etc/graylog/server/elasticsearch.yml
 
 # Graylog will use multiple indices to store documents in. You can configured the strategy it uses to determine
 # when to rotate the currently active write index.
@@ -210,7 +210,7 @@ allow_highlighting = false
 # settings to be passed to elasticsearch's client (overriding those in the provided elasticsearch_config_file)
 # all these
 # this must be the same as for your Elasticsearch cluster
-elasticsearch_cluster_name = {{ ELASTICSEARCH_CLUSTER | default('graylog2') }}
+# elasticsearch_cluster_name = {{ ELASTICSEARCH_CLUSTER | default('graylog2') }}
 
 # The prefix being used to generate the Elasticsearch node name which makes it easier to identify the specific Graylog
 # server running the embedded Elasticsearch instance. The node name will be constructed by concatenating this prefix
@@ -221,17 +221,17 @@ elasticsearch_cluster_name = {{ ELASTICSEARCH_CLUSTER | default('graylog2') }}
 # A comma-separated list of Elasticsearch nodes which Graylog is using to connect to the Elasticsearch cluster,
 # see https://www.elastic.co/guide/en/elasticsearch/reference/2.3/modules-discovery-zen.html for details.
 # Default: 127.0.0.1
-elasticsearch_discovery_zen_ping_unicast_hosts = {{ ELASTICSEARCH_HOST | default('elasticsearch') }}:{{ ELASTICSEARCH_PORT | default(9300) }}
-
+# elasticsearch_discovery_zen_ping_unicast_hosts = {{ ELASTICSEARCH_HOST | default('elasticsearch') }}:{{ ELASTICSEARCH_PORT | default(9300) }}
+elasticsearch_hosts = http://{{ ELASTICSEARCH_HOST | default('elasticsearch') }}:{{ ELASTICSEARCH_PORT | default(9200) }}
 # we don't want the Graylog server to store any data, or be master node
-elasticsearch_node_master = false
-elasticsearch_node_data = false
+# elasticsearch_node_master = false
+# elasticsearch_node_data = false
 
 # use a different port if you run multiple Elasticsearch nodes on one machine
 #elasticsearch_transport_tcp_port = 9350
 
 # we don't need to run the embedded HTTP server here
-elasticsearch_http_enabled = false
+# elasticsearch_http_enabled = false
 
 # Enable Elasticsearch multicast discovery. This requires the installation of an Elasticsearch plugin,
 # see https://www.elastic.co/guide/en/elasticsearch/plugins/2.3/discovery-multicast.html for details.
@@ -247,9 +247,9 @@ elasticsearch_http_enabled = false
 # override them here or in the 'elasticsearch_config_file' if you need to bind to a special address
 # refer to http://www.elasticsearch.org/guide/en/elasticsearch/reference/0.90/modules-network.html
 # for special values here
-elasticsearch_network_host = _non_loopback:ipv4_
-#elasticsearch_network_bind_host =
-#elasticsearch_network_publish_host =
+# elasticsearch_network_host = _non_loopback:ipv4_
+# elasticsearch_network_bind_host =
+# elasticsearch_network_publish_host =
 
 # The total amount of time discovery will look for other Elasticsearch nodes in the cluster
 # before giving up and declaring the current node master.
