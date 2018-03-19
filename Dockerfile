@@ -1,8 +1,9 @@
 FROM verdel/alpine-base:latest
 MAINTAINER Vadim Aleksandrov <valeksandrov@me.com>
 
-ENV GRAYLOG_VERSION 2.4.3
 ENV JAVA_HOME /usr
+
+COPY rootfs /
 
 RUN apk --no-cache --update add \
     bash \
@@ -15,14 +16,13 @@ RUN apk --no-cache --update add \
     /tmp/* \
     /var/cache/apk/*
 
-ADD https://packages.graylog2.org/releases/graylog/graylog-$GRAYLOG_VERSION.tgz /opt/
+RUN /opt/install/install_graylog.py
 
 RUN cd /opt/ \
-    && tar xfz graylog-$GRAYLOG_VERSION.tgz \
-    && mv graylog-$GRAYLOG_VERSION/ graylog/ \
-    && rm graylog-$GRAYLOG_VERSION.tgz
-
-COPY rootfs /
+    && tar xfz graylog-*.tgz \
+    && mv graylog-*/ graylog/ \
+    && rm graylog-*.tgz \
+    && rm -rf /opt/install
 
 # gelf tcp/udp
 EXPOSE 12201
