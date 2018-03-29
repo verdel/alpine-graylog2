@@ -19,8 +19,7 @@ RUN apk --no-cache --update add \
 RUN /opt/install/install_graylog.py
 
 RUN cd /opt/ \
-    && tar xfz graylog-*.tgz \
-    && mv graylog-*/ graylog/ \
+    && tar xfz graylog-*.tgz -C /opt/graylog --strip-components=1 \
     && rm graylog-*.tgz \
     && rm -rf /opt/install
 
